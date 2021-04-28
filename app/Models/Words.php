@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Words extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['word', 'category_id'];
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category', 'category_id');
+    }
+
+    public function getWordShuffledAttribute()
+    {
+        return str_shuffle($this->word);
+    }
 }
