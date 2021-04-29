@@ -13,7 +13,6 @@ class GameController extends Controller
         return view('game');
     }
 
-
     public function getWord()
     {
         $wordIds = ! empty(auth()->user()->words) ? explode(',', auth()->user()->words) : '';
