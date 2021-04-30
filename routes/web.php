@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('get-word', [GameController::class, 'getWord'])->name('game.word');
     Route::post('check-answer', [GameController::class ,'checkAnswer'])->name('game.answer');
 });
+
+Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
 
 require __DIR__.'/auth.php';
